@@ -1,5 +1,5 @@
 import {Request, Response} from 'express';
-import knex from 'knex';
+import knex from '../database/connection';
 
 class ItemsController {
     async index(request: Request, res: Response) {
@@ -12,7 +12,6 @@ class ItemsController {
                 image_url: `http://localhost:3333/uploads/${item.image}`,
             };
         })
-    
         return res.json(serializedItems);
     }
 }
